@@ -1,0 +1,17 @@
+{
+  "name": "v3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "rimraf": "^3.0.0",
+    "run-sequence": "^2.2.1"
+  }
+}
