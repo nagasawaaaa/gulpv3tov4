@@ -1,20 +1,23 @@
-import { series, parallel } from 'gulp'
+import { series, parallel } from 'gulp';
+import clean from './tasks/clean';
+import output from './tasks/output';
 
-function css (done) {
+async function css () {
   console.log('css');
-  done();
 }
 
-function js (done) {
+async function js () {
   console.log('js');
-  done();
 }
 
-function imagemin (done) {
+async function imagemin () {
   console.log('imagemin');
-  done();
 }
 
-const build = series(css, js, imagemin);
+const build = series(
+  clean,
+  parallel(css, js, imagemin),
+  output
+);
 
 export default build;
