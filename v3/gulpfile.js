@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 const rimraf = require('rimraf');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 const runSequence = require('run-sequence');
 
 const input = 'src';
@@ -11,6 +13,16 @@ gulp.task('clean', cb => {
 
 gulp.task('css', () => {
   console.log('css');
+});
+
+gulp.task('sass', () => {
+  return gulp.src('src/**/*.scss', {
+      base: 'src'
+    })
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('public_html'));
 });
 
 gulp.task('js', () => {
